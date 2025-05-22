@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="inventario" load_steps=4 format=3 uid="uid://bhymt45sfsm65"]
+
+[ext_resource type="Script" uid="uid://bijhh3n44ure4" path="res://inventario/inventario/inventaio/iteminventario/iteminventario.gd" id="1_3pphv"]
+[ext_resource type="Resource" uid="uid://dlsgl0kr8yeb4" path="res://inventario/inventario/inventaio/iteminventario/lifepot/lifepot.tres" id="2_1ccy2"]
+[ext_resource type="Script" uid="uid://dokqbeegdx2m7" path="res://inventario/inventario/inventaio/inventario.gd" id="3_te6to"]
+
+[resource]
+script = ExtResource("3_te6to")
+items = Array[ExtResource("1_3pphv")]([ExtResource("2_1ccy2"), ExtResource("2_1ccy2"), null, null, ExtResource("2_1ccy2"), null, ExtResource("2_1ccy2"), ExtResource("2_1ccy2"), null, null, null, null])
+metadata/_custom_type_script = "uid://dokqbeegdx2m7"

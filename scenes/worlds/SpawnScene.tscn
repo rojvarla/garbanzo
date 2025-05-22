@@ -1,5 +1,6 @@
 [gd_scene load_steps=113 format=4 uid="uid://bqf0sxipakb56"]
 
+[ext_resource type="Script" uid="uid://cj334ok6ooflf" path="res://scenes/worlds/spawn_scene.gd" id="1_2uymu"]
 [ext_resource type="Texture2D" uid="uid://d3o0kafru201r" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="1_5kp5n"]
 [ext_resource type="Texture2D" uid="uid://dpc76tlo87tmd" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Props.png" id="2_m1ilk"]
 [ext_resource type="Texture2D" uid="uid://dom4dfknal63b" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="3_52asi"]
@@ -37,10 +38,8 @@
 [ext_resource type="Texture2D" uid="uid://bg3ns33uwdkwj" path="res://assets/Vegetation/Trees 3.png" id="27_hqlvj"]
 [ext_resource type="Script" uid="uid://ck356rvl7fjm6" path="res://scenes/worlds/transition_to_read.gd" id="31_ebsdm"]
 [ext_resource type="PackedScene" uid="uid://yv7ad2j0t7ju" path="res://inventario.tscn" id="37_s2skh"]
+[ext_resource type="Resource" uid="uid://bhymt45sfsm65" path="res://inventario/inventario/inventaio/iteminventario/playerinventori.tres" id="38_s6e5g"]
 [ext_resource type="Script" uid="uid://cs6vpjq8egb50" path="res://scenes/worlds/canvas_layer.gd" id="38_y0v4c"]
-[ext_resource type="Script" uid="uid://b4awtyl72jte3" path="res://inventario.gd" id="40_y0v4c"]
-
-[sub_resource type="GDScript" id="GDScript_2uymu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epg5w"]
 texture = ExtResource("1_5kp5n")
@@ -18968,7 +18967,7 @@ sources/0 = SubResource("TileSetAtlasSource_8o0fo")
 sources/1 = SubResource("TileSetAtlasSource_5egir")
 
 [node name="SpawnScene" type="Node2D"]
-script = SubResource("GDScript_2uymu")
+script = ExtResource("1_2uymu")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
@@ -19027,6 +19026,8 @@ shape = SubResource("RectangleShape2D_dmpoe")
 
 [node name="Player" parent="." instance=ExtResource("4_61r04")]
 position = Vector2(257, 122)
+speed = 100.0
+inventario = ExtResource("38_s6e5g")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 
@@ -19038,11 +19039,8 @@ tile_set = SubResource("TileSet_5egir")
 script = ExtResource("38_y0v4c")
 
 [node name="inventario" parent="CanvasLayer" instance=ExtResource("37_s2skh")]
-offset_left = 28.0
-offset_top = -1.0
-offset_right = 162.0
-offset_bottom = 50.0
-script = ExtResource("40_y0v4c")
+offset_left = 3.0
+offset_right = 137.0
 
 [connection signal="body_entered" from="transitionToMath" to="transitionToMath" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionToRead" to="TransitionToRead" method="_on_body_entered"]

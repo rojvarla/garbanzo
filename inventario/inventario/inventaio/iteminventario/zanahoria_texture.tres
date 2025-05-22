@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d0jtiy6id6bvx"]
+
+[ext_resource type="Texture2D" uid="uid://c6exlttwbtthx" path="res://assets/Outdoor decoration/Outdoor_Decor_Free.png" id="1_uspu4"]
+
+[resource]
+atlas = ExtResource("1_uspu4")
+region = Rect2(65, 45, 15, 20)

@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=4 uid="uid://bjapsb2spqi2"]
+[gd_scene load_steps=16 format=4 uid="uid://bjapsb2spqi2"]
 
+[ext_resource type="Script" uid="uid://cniv88jqkiwn8" path="res://scenes/worlds/mathematics_town.gd" id="1_tb5l4"]
 [ext_resource type="Texture2D" uid="uid://dpc76tlo87tmd" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Props.png" id="3_3mj8x"]
 [ext_resource type="Texture2D" uid="uid://bq2i07evwk6xk" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Plant.png" id="3_owhjd"]
 [ext_resource type="Texture2D" uid="uid://d3o0kafru201r" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="3_s4nkj"]
 [ext_resource type="Script" uid="uid://yi1wtc36q0w2" path="res://scripts/transition_to_spawn.gd" id="4_owhjd"]
 [ext_resource type="PackedScene" uid="uid://1m1v3c3ri1mq" path="res://characters/Player.tscn" id="5_s4nkj"]
 [ext_resource type="PackedScene" uid="uid://yv7ad2j0t7ju" path="res://inventario.tscn" id="6_i0o44"]
+[ext_resource type="Script" uid="uid://cs6vpjq8egb50" path="res://scenes/worlds/canvas_layer.gd" id="7_5ixvs"]
 
 [sub_resource type="TileSet" id="TileSet_ym8qg"]
 
@@ -900,6 +902,7 @@ sources/1 = SubResource("TileSetAtlasSource_owhjd")
 size = Vector2(33, 47)
 
 [node name="MathematicsTown" type="Node2D"]
+script = ExtResource("1_tb5l4")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ym8qg")
@@ -931,6 +934,7 @@ position = Vector2(231, 418)
 speed = 100.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("7_5ixvs")
 
 [node name="inventario" parent="CanvasLayer" instance=ExtResource("6_i0o44")]
 

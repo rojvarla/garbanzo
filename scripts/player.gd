@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100.0
 @onready var animated_sprite = $AnimatedSprite2D
+@export var inventario: inventario
 
 var last_direction = "front"  # Dirección inicial
 

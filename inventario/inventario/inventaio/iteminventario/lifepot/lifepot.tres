@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemInventario" load_steps=3 format=3 uid="uid://dlsgl0kr8yeb4"]
+
+[ext_resource type="Script" uid="uid://bijhh3n44ure4" path="res://inventario/inventario/inventaio/iteminventario/iteminventario.gd" id="1_8jef5"]
+[ext_resource type="Texture2D" uid="uid://d0jtiy6id6bvx" path="res://inventario/inventario/inventaio/iteminventario/zanahoria_texture.tres" id="2_wdu0f"]
+
+[resource]
+script = ExtResource("1_8jef5")
+name = "lifepot"
+texture = ExtResource("2_wdu0f")
+metadata/_custom_type_script = "uid://bijhh3n44ure4"
