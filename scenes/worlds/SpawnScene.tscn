@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=4 uid="uid://bqf0sxipakb56"]
+[gd_scene load_steps=113 format=4 uid="uid://bqf0sxipakb56"]
 
 [ext_resource type="Texture2D" uid="uid://d3o0kafru201r" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Tileset Grass.png" id="1_5kp5n"]
 [ext_resource type="Texture2D" uid="uid://dpc76tlo87tmd" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Props.png" id="2_m1ilk"]
@@ -36,6 +36,11 @@
 [ext_resource type="Texture2D" uid="uid://dlyo3fe42yd7i" path="res://assets/Outdoor decoration/Oak_Tree_Small.png" id="25_twvfk"]
 [ext_resource type="Texture2D" uid="uid://bg3ns33uwdkwj" path="res://assets/Vegetation/Trees 3.png" id="27_hqlvj"]
 [ext_resource type="Script" uid="uid://ck356rvl7fjm6" path="res://scenes/worlds/transition_to_read.gd" id="31_ebsdm"]
+[ext_resource type="PackedScene" uid="uid://yv7ad2j0t7ju" path="res://inventario.tscn" id="37_s2skh"]
+[ext_resource type="Script" uid="uid://cs6vpjq8egb50" path="res://scenes/worlds/canvas_layer.gd" id="38_y0v4c"]
+[ext_resource type="Script" uid="uid://b4awtyl72jte3" path="res://inventario.gd" id="40_y0v4c"]
+
+[sub_resource type="GDScript" id="GDScript_2uymu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epg5w"]
 texture = ExtResource("1_5kp5n")
@@ -18963,6 +18968,7 @@ sources/0 = SubResource("TileSetAtlasSource_8o0fo")
 sources/1 = SubResource("TileSetAtlasSource_5egir")
 
 [node name="SpawnScene" type="Node2D"]
+script = SubResource("GDScript_2uymu")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
@@ -19027,6 +19033,16 @@ position = Vector2(257, 122)
 [node name="casita" type="TileMapLayer" parent="TileMapLayer2"]
 tile_map_data = PackedByteArray("AAAuAB0AAAAvACwAAAAuAB4AAAAvAC0AAAAuAB8AAAAvAC4AAAAvAB0AAAAwACwAAAAvAB4AAAAwAC0AAAAvAB8AAAAwAC4AAAAwAB0AAAAxACwAAAAwAB4AAAAxAC0AAAAwAB8AAAAxAC4AAAAxAB0AAAAyACwAAAAxAB4AAAAyAC0AAAAxAB8AAAAyAC4AAAAyAB0AAAAzACwAAAAyAB4AAAAzAC0AAAAyAB8AAAAzAC4AAAAzAB0AAAA0ACwAAAAzAB4AAAA0AC0AAAAzAB8AAAA0AC4AAAA0AB0AAAA1ACwAAAA0AB4AAAA1AC0AAAA0AB8AAAA1AC4AAAA1AB0AAAA2ACwAAAA1AB4AAAA2AC0AAAA1AB8AAAA2AC4AAAA2AB0AAAA3ACwAAAA2AB4AAAA3AC0AAAA2AB8AAAA3AC4AAAA3AB0AAAA4ACwAAAA3AB4AAAA4AC0AAAA3AB8AAAA4AC4AAAAtABkAAAAuABYAAAAtABoAAAAuABcAAAAtABsAAAAuABgAAAAtABwAAAAuABkAAAAuABkAAAAvABYAAAAuABoAAAAvABcAAAAuABsAAAAvABgAAAAuABwAAAAvABkAAAAvABkAAAAwABYAAAAvABoAAAAwABcAAAAvABsAAAAwABgAAAAvABwAAAAwABkAAAAwABkAAAAxABYAAAAwABoAAAAxABcAAAAwABsAAAAxABgAAAAwABwAAAAxABkAAAAxABkAAAAyABYAAAAxABoAAAAyABcAAAAxABsAAAAyABgAAAAxABwAAAAyABkAAAAyABkAAAAzABYAAAAyABoAAAAzABcAAAAyABsAAAAzABgAAAAyABwAAAAzABkAAAAzABkAAAA0ABYAAAAzABoAAAA0ABcAAAAzABsAAAA0ABgAAAAzABwAAAA0ABkAAAA0ABkAAAA1ABYAAAA0ABoAAAA1ABcAAAA0ABsAAAA1ABgAAAA0ABwAAAA1ABkAAAA1ABkAAAA2ABYAAAA1ABoAAAA2ABcAAAA1ABsAAAA2ABgAAAA1ABwAAAA2ABkAAAA2ABkAAAA3ABYAAAA2ABoAAAA3ABcAAAA2ABsAAAA3ABgAAAA2ABwAAAA3ABkAAAA3ABkAAAA4ABYAAAA3ABoAAAA4ABcAAAA3ABsAAAA4ABgAAAA3ABwAAAA4ABkAAAA4ABkAAAA5ABYAAAA4ABoAAAA5ABcAAAA4ABsAAAA5ABgAAAA4ABwAAAA5ABkAAAAuABgAAAAvAB8AAAAvABcAAAAwAB4AAAAvABgAAAAwAB8AAAAwABYAAAAxAB0AAAAwABcAAAAxAB4AAAAwABgAAAAxAB8AAAAxABUAAAAyABwAAAAxABYAAAAyAB0AAAAxABcAAAAyAB4AAAAxABgAAAAyAB8AAAAyABQAAAAzABsAAAAyABUAAAAzABwAAAAyABYAAAAzAB0AAAAyABcAAAAzAB4AAAAyABgAAAAzAB8AAAAzABQAAAA8ABsAAAAzABUAAAA8ABwAAAAzABYAAAA0AB0AAAAzABcAAAA0AB4AAAAzABgAAAA0AB8AAAA0ABUAAAA9ABwAAAA0ABYAAAA1AB0AAAA0ABcAAAA1AB4AAAA0ABgAAAA1AB8AAAA1ABYAAAA2AB0AAAA1ABcAAAA2AB4AAAA1ABgAAAA2AB8AAAA2ABcAAAA3AB4AAAA2ABgAAAA3AB8AAAA3ABgAAAA4AB8AAAA0ABQAAAA9ABsAAAARABoAAQAEAAMAAAARABsAAQAEAAQAAAASABoAAQAFAAMAAAASABsAAQAFAAQAAAASABwAAQAFAAUAAAASAB0AAQAFAAYAAAATABoAAQAGAAMAAAATABsAAQAGAAQAAAA=")
 tile_set = SubResource("TileSet_5egir")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("38_y0v4c")
+
+[node name="inventario" parent="CanvasLayer" instance=ExtResource("37_s2skh")]
+offset_left = 28.0
+offset_top = -1.0
+offset_right = 162.0
+offset_bottom = 50.0
+script = ExtResource("40_y0v4c")
 
 [connection signal="body_entered" from="transitionToMath" to="transitionToMath" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionToRead" to="TransitionToRead" method="_on_body_entered"]

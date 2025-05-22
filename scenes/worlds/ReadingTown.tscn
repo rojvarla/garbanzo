@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://cts1lp12nwnyw"]
+[gd_scene load_steps=102 format=4 uid="uid://cts1lp12nwnyw"]
 
 [ext_resource type="Texture2D" uid="uid://di0ruebcel3mc" path="res://tilesets/Tiles/Grass_Middle.png" id="1_lltba"]
 [ext_resource type="Texture2D" uid="uid://bf62ecv40a1ya" path="res://tilesets/Tiles/Water_Tile.png" id="2_dbjwb"]
@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://xx8iov5sq8la" path="res://assets/Outdoor decoration/Oak_Tree.png" id="23_7cqk6"]
 [ext_resource type="Texture2D" uid="uid://c6exlttwbtthx" path="res://assets/Outdoor decoration/Outdoor_Decor_Free.png" id="24_2lhfm"]
 [ext_resource type="Texture2D" uid="uid://bjybpgtghviwj" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_1.png" id="29_j84se"]
+[ext_resource type="Script" uid="uid://cs6vpjq8egb50" path="res://scenes/worlds/canvas_layer.gd" id="33_2lhfm"]
+[ext_resource type="PackedScene" uid="uid://yv7ad2j0t7ju" path="res://inventario.tscn" id="33_7cqk6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbjwb"]
 texture = ExtResource("1_lltba")
@@ -28783,5 +28785,10 @@ next_scene = "res://scenes/worlds/SpawnScene.tscn"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="transitionToSpawn"]
 position = Vector2(694, 872)
 shape = SubResource("RectangleShape2D_p4ejl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("33_2lhfm")
+
+[node name="inventario" parent="CanvasLayer" instance=ExtResource("33_7cqk6")]
 
 [connection signal="body_entered" from="transitionToSpawn" to="transitionToSpawn" method="_on_body_entered"]
