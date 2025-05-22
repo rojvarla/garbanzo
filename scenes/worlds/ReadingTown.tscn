@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://be1x46kxoyock" path="res://assets/World of Solaria Rural Village Update 08d DEMO/World of Solaria New Style DEMO.png" id="15_iu1eq"]
 [ext_resource type="Texture2D" uid="uid://c3kg241cdyiot" path="res://assets/The Fan-tasy Tileset (Free)/Art/Props/Atlas/Props.png" id="16_iu1eq"]
 [ext_resource type="Texture2D" uid="uid://dvmh7syb1mktg" path="res://assets/puerto y demás/aqui_está_el_puerto/puerto.png" id="17_yf3e5"]
-[ext_resource type="Texture2D" uid="uid://c6u2pxler83vy" path="res://assets/puerto y demás/buildings/houses.png" id="20_1da6o"]
+[ext_resource type="Texture2D" uid="uid://c6u2pxler83vy" path="res://assets/puerto y demás/houses.png" id="20_1da6o"]
 [ext_resource type="Texture2D" uid="uid://dom4dfknal63b" path="res://tilesets/Pixel Art Top Down - Basic v1.1.2/Texture/TX Struct.png" id="21_yiomc"]
 [ext_resource type="Texture2D" uid="uid://n4v5u8q4t5ln" path="res://assets/puerto y demás/aqui_está_el_puerto/objects.png" id="22_ewsvm"]
 [ext_resource type="Texture2D" uid="uid://xx8iov5sq8la" path="res://assets/Outdoor decoration/Oak_Tree.png" id="23_7cqk6"]
