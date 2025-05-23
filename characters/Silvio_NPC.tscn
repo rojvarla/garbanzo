@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://b57nq7vtqwtjj"]
+
+[ext_resource type="Script" uid="uid://bmog6yx6olld5" path="res://characters/silvio_npc.gd" id="1_2iosm"]
+[ext_resource type="Texture2D" uid="uid://ct2xexg1rlhna" path="res://assets/NPCs/silvio.png" id="2_n2ej0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7huou"]
+atlas = ExtResource("2_n2ej0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkr0w"]
+atlas = ExtResource("2_n2ej0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdsp8"]
+atlas = ExtResource("2_n2ej0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7can6"]
+atlas = ExtResource("2_n2ej0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kjt1b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7huou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkr0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdsp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7can6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2iosm"]
+size = Vector2(18, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qwg6q"]
+size = Vector2(19.25, 20)
+
+[node name="NPC_Silvio" type="CharacterBody2D"]
+script = ExtResource("1_2iosm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.499999, 7)
+scale = Vector2(0.8125, 0.708333)
+sprite_frames = SubResource("SpriteFrames_kjt1b")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.5)
+shape = SubResource("RectangleShape2D_2iosm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.625, 13)
+shape = SubResource("RectangleShape2D_qwg6q")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 12.0
+offset_top = -11.0
+offset_right = 21.0
+offset_bottom = 12.0

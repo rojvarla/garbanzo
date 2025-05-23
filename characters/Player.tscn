@@ -196,7 +196,7 @@ height = 50.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_v0k12"]
 radius = 7.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_8fq0x")
 speed = null
 
@@ -207,7 +207,8 @@ drag_vertical_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_h1q25")
-animation = &"idle_right"
+animation = &"walk_back"
+frame_progress = 0.00120563
 speed_scale = 3.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

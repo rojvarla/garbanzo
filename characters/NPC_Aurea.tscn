@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1sidch0v7caq"]
+
+[ext_resource type="Script" uid="uid://2s6c006r3jjv" path="res://characters/npc_aurea.gd" id="1_4ybis"]
+[ext_resource type="Texture2D" uid="uid://qt0joaqqlid1" path="res://assets/NPCs/aurea.png" id="1_hx6d2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ybis"]
+atlas = ExtResource("1_hx6d2")
+region = Rect2(0, 0, 24, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n75v"]
+atlas = ExtResource("1_hx6d2")
+region = Rect2(24, 0, 24, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33qes"]
+atlas = ExtResource("1_hx6d2")
+region = Rect2(48, 0, 24, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g00jj"]
+atlas = ExtResource("1_hx6d2")
+region = Rect2(72, 0, 24, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kivyc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ybis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n75v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33qes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g00jj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8wl5"]
+size = Vector2(11, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ext4l"]
+radius = 9.21954
+
+[node name="NpcAurea" type="CharacterBody2D"]
+script = ExtResource("1_4ybis")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(15.0937, 9.55469)
+scale = Vector2(1.24219, 1.08438)
+sprite_frames = SubResource("SpriteFrames_kivyc")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 10)
+shape = SubResource("RectangleShape2D_d8wl5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, 9)
+shape = SubResource("CircleShape2D_ext4l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = -5.0
+offset_right = 25.0
+offset_bottom = 18.0
