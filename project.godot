@@ -24,7 +24,13 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 directories/dch_directory={}
 directories/dtl_directory={
+"Architect_Failure": "res://dialogues/Architect_Failure.dtl",
+"Architect_Initial_Dialogue": "res://dialogues/Architect_Initial_Dialogue.dtl",
+"Architect_Repeat_Dialogue": "res://dialogues/Architect_Repeat_Dialogue.dtl",
+"Architect_Success": "res://dialogues/Architect_Success.dtl",
 "Aurea_Initial_Dialogue": "res://dialogues/Aurea_Initial_Dialogue.dtl",
+"Guide_Initial_Dialogue": "res://dialogues/Guide_Initial_Dialogue.dtl",
+"Guide_Repeat_Dialogue": "res://dialogues/Guide_Repeat_Dialogue.dtl",
 "Silvio_Initial_Dialogue": "res://dialogues/Silvio_Initial_Dialogue.dtl",
 "Silvio_Repeat_Dialogue": "res://dialogues/Silvio_Repeat_Dialogue.dtl"
 }
