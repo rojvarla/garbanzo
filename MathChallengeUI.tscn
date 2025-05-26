@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://ud0sawdinm88"]
+[gd_scene load_steps=7 format=3 uid="uid://ud0sawdinm88"]
 
 [ext_resource type="Script" uid="uid://veamgmpqvthi" path="res://math_challenge_ui.gd" id="1_1c8s8"]
+[ext_resource type="Theme" uid="uid://d30vgx5r5hxii" path="res://ui_theme.tres" id="1_pj3nh"]
+[ext_resource type="Texture2D" uid="uid://b72yrjng8qmyp" path="res://assets/UI assets pack 2/UI books & more.png" id="3_t3rdm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1c8s8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5bn7"]
+atlas = ExtResource("3_t3rdm")
+region = Rect2(352.407, 272.133, 31.7675, 15.914)
+
+[sub_resource type="LabelSettings" id="LabelSettings_t3rdm"]
+font_size = 12
 
 [node name="MathChallengeUi" type="Control"]
 layout_mode = 3
@@ -9,29 +20,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_pj3nh")
 script = ExtResource("1_1c8s8")
 
 [node name="Panel" type="Panel" parent="."]
+material = SubResource("CanvasItemMaterial_1c8s8")
 layout_mode = 0
-offset_right = 40.0
+offset_left = -120.0
+offset_top = 40.0
+offset_right = -120.0
 offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -38.0
+offset_right = 376.0
+offset_bottom = 194.0
+texture = SubResource("AtlasTexture_a5bn7")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 16.0
+offset_top = -14.0
+offset_right = 336.0
+offset_bottom = 34.0
+label_settings = SubResource("LabelSettings_t3rdm")
+autowrap_mode = 2
 
-[node name="Button" type="Button" parent="Panel"]
+[node name="Button1" type="Button" parent="Panel"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 48.0
+offset_top = 98.0
+offset_right = 108.0
+offset_bottom = 128.0
+text = "50m"
 
 [node name="Button2" type="Button" parent="Panel"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 152.0
+offset_top = 98.0
+offset_right = 212.0
+offset_bottom = 128.0
+text = "48m"
 
 [node name="Button3" type="Button" parent="Panel"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 256.0
+offset_top = 98.0
+offset_right = 316.0
+offset_bottom = 128.0
+text = "73m
+"

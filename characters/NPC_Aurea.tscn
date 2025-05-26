@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1sidch0v7caq"]
+[gd_scene load_steps=11 format=3 uid="uid://d1sidch0v7caq"]
 
 [ext_resource type="Script" uid="uid://2s6c006r3jjv" path="res://characters/npc_aurea.gd" id="1_4ybis"]
 [ext_resource type="Texture2D" uid="uid://qt0joaqqlid1" path="res://assets/NPCs/aurea.png" id="1_hx6d2"]
@@ -40,32 +40,36 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8wl5"]
-size = Vector2(11, 15)
+size = Vector2(13.5, 18.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ext4l"]
-radius = 9.21954
+radius = 13.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ybis"]
+font_size = 12
 
 [node name="NpcAurea" type="CharacterBody2D"]
 script = ExtResource("1_4ybis")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(15.0937, 9.55469)
-scale = Vector2(1.24219, 1.08438)
+position = Vector2(17.0937, 8.05472)
+scale = Vector2(1.40886, 1.20438)
 sprite_frames = SubResource("SpriteFrames_kivyc")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(15, 10)
+position = Vector2(16.25, 8.25)
 shape = SubResource("RectangleShape2D_d8wl5")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(15, 9)
+position = Vector2(17, 7)
 shape = SubResource("CircleShape2D_ext4l")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 16.0
-offset_top = -5.0
-offset_right = 25.0
-offset_bottom = 18.0
+offset_left = 2.0
+offset_top = -9.0
+offset_right = 31.0
+offset_bottom = 14.0
+label_settings = SubResource("LabelSettings_4ybis")

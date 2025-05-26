@@ -1,0 +1,198 @@
+[gd_scene load_steps=6 format=3 uid="uid://c06psw841pxqk"]
+
+[ext_resource type="Script" uid="uid://cvbhvcthimqt4" path="res://route_challenge_ui.gd" id="1_6241x"]
+[ext_resource type="Texture2D" uid="uid://b72yrjng8qmyp" path="res://assets/UI assets pack 2/UI books & more.png" id="2_85cjd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffff6"]
+atlas = ExtResource("2_85cjd")
+region = Rect2(655.446, 14, 49.3495, 65.9279)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r7txg"]
+font_size = 14
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh5ai"]
+atlas = ExtResource("2_85cjd")
+region = Rect2(474.161, 102.207, 36.1997, 39.6148)
+
+[node name="RouteChallengeUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 16.0
+offset_right = -344.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6241x")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 224.0
+offset_right = 432.0
+offset_bottom = 224.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -216.0
+offset_top = -232.0
+offset_right = 128.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_ffff6")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -176.0
+offset_top = -296.0
+offset_right = 94.0
+offset_bottom = -236.0
+label_settings = SubResource("LabelSettings_r7txg")
+autowrap_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = -168.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 15.0
+placeholder_text = "Distancia (m)"
+
+[node name="SubmitButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -16.0
+offset_right = 81.0
+offset_bottom = 15.0
+text = "Enviar
+"
+
+[node name="CalculatorButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = -136.0
+offset_top = -200.0
+offset_right = 40.0
+offset_bottom = -169.0
+text = "Mostrar Calculadora
+"
+
+[node name="TextureRect2" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -176.0
+offset_top = -168.0
+offset_right = 88.0
+offset_bottom = -24.0
+texture = SubResource("AtlasTexture_kh5ai")
+
+[node name="CalculatorPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = -336.0
+offset_top = 56.0
+offset_right = -336.0
+offset_bottom = 56.0
+
+[node name="Button_0" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = -120.0
+offset_right = 288.0
+offset_bottom = -89.0
+text = "0"
+
+[node name="Button_1" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = -152.0
+offset_right = 224.0
+offset_bottom = -121.0
+text = "1"
+
+[node name="Button_2" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = -152.0
+offset_right = 288.0
+offset_bottom = -121.0
+text = "2"
+
+[node name="Button_3" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = -152.0
+offset_right = 352.0
+offset_bottom = -121.0
+text = "3"
+
+[node name="Button_4" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = -184.0
+offset_right = 224.0
+offset_bottom = -153.0
+text = "4"
+
+[node name="Button_5" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = -184.0
+offset_right = 288.0
+offset_bottom = -153.0
+text = "5"
+
+[node name="Button_6" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = -184.0
+offset_right = 352.0
+offset_bottom = -153.0
+text = "6"
+
+[node name="Button_7" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = -216.0
+offset_right = 224.0
+offset_bottom = -185.0
+text = "7"
+
+[node name="Button_8" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = -216.0
+offset_right = 288.0
+offset_bottom = -185.0
+text = "8"
+
+[node name="Button_9" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = -216.0
+offset_right = 352.0
+offset_bottom = -185.0
+text = "9"
+
+[node name="Button_Dot" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = -120.0
+offset_right = 352.0
+offset_bottom = -89.0
+text = "."
+
+[node name="Button_Cos" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = -120.0
+offset_right = 224.0
+offset_bottom = -89.0
+text = "cos
+"
+
+[node name="Button_Equal" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = -120.0
+offset_right = 416.0
+offset_bottom = -89.0
+text = "="

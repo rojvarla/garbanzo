@@ -12,10 +12,8 @@ script = ExtResource("1_x4av3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_top = -1.0
-offset_right = 642.0
-offset_bottom = 359.0
+offset_right = 640.0
+offset_bottom = 360.0
 texture = SubResource("CompressedTexture2D_3mqji")
 
 [node name="Button" type="Button" parent="."]

@@ -6,14 +6,22 @@ var mission_completed = false
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var math_challenge_ui = preload("res://MathChallengeUI.tscn").instantiate()
+@onready var cartographer_map = preload("res://CartographerMap.tscn").instantiate()
 
 func _ready():
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
 	$Label.visible = false
 	animated_sprite.play("idle")
-	add_child(math_challenge_ui)
+	# Añadir UI y mapa a un CanvasLayer
+	var ui_layer = CanvasLayer.new()
+	ui_layer.layer = 10
+	get_tree().root.add_child(ui_layer)
+	ui_layer.add_child(math_challenge_ui)
+	ui_layer.add_child(cartographer_map)
 	math_challenge_ui.answer_submitted.connect(_on_answer_submitted)
+	get_node("/root/MissionManager").start_mission("bridge_mission")
+	print("NPC_Architect initialized")
 
 func _process(delta):
 	if player_in_range and Input.is_action_just_pressed("interact") and not mission_completed:
@@ -24,29 +32,42 @@ func _on_body_entered(body):
 		player_in_range = true
 		$Label.text = "Presiona E para hablar"
 		$Label.visible = true
+		print("Player entered interaction range")
 
 func _on_body_exited(body):
 	if body == player:
 		player_in_range = false
 		$Label.visible = false
+		print("Player exited interaction range")
 
 func start_dialogue():
+	if Dialogic.current_timeline != null:
+		print("Another dialogue is active, skipping")
+		return
 	var timeline_name = "Architect_Initial_Dialogue" if not has_spoken_once else "Architect_Repeat_Dialogue"
-	var dialogue = Dialogic.start(timeline_name)
-	add_child(dialogue)
-	dialogue.connect("timeline_ended", _on_dialogue_ended)
+	Dialogic.start(timeline_name)
+	Dialogic.timeline_ended.connect(_on_dialogue_ended, CONNECT_ONE_SHOT)
 	has_spoken_once = true
+	print("Starting dialogue: ", timeline_name)
 
 func _on_dialogue_ended():
 	if not mission_completed:
-		math_challenge_ui.show_challenge("Calcula la distancia directa: 40 m a lo largo, 30 m hacia abajo.")
+		# Posicionar UI y mapa en relación con la cámara
+		var camera = get_viewport().get_camera_2d()
+		var screen_center = camera.get_screen_center_position() if camera else Vector2(320, 180) # Centro para 640x360
+		math_challenge_ui.position = screen_center - Vector2(150, 100) # Centro de la UI (300x200)
+		cartographer_map.position = Vector2(450, 100) # Cerca del puente (x=300)
+		cartographer_map.show_map()
+		math_challenge_ui.show_challenge("Calcula la longitud de la viga diagonal: 40 m a lo largo, 30 m de profundidad.")
+		print("Dialogue ended, showing UI at ", math_challenge_ui.position, " and map at ", cartographer_map.position)
 
 func _on_answer_submitted(answer: float):
-	if abs(answer - 50.0) < 0.1: # Tolerancia para errores de redondeo
+	cartographer_map.hide_map()
+	if abs(answer - 50.0) < 0.1:
 		mission_completed = true
-		var dialogue = Dialogic.start("Architect_Success")
-		add_child(dialogue)
+		Dialogic.start("Architect_Success")
 		get_node("/root/MissionManager").complete_mission("bridge_mission")
+		print("Correct answer, mission completed")
 	else:
-		var dialogue = Dialogic.start("Architect_Failure")
-		add_child(dialogue)
+		Dialogic.start("Architect_Failure")
+		print("Incorrect answer")

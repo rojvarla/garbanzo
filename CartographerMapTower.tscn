@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8cguocwq4fud"]
+
+[ext_resource type="Script" uid="uid://d3w68wyimuber" path="res://cartographer_map_tower.gd" id="1_dxsc7"]
+[ext_resource type="Theme" uid="uid://d30vgx5r5hxii" path="res://ui_theme.tres" id="2_nb5j0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0thh5"]
+font_size = 10
+
+[sub_resource type="LabelSettings" id="LabelSettings_23dbm"]
+font_size = 12
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_21b3y"]
+font_size = 12
+font_color = Color(1, 0.988235, 1, 1)
+
+[node name="CartographerMapTower" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -643.0
+offset_top = 4.0
+offset_right = -643.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxsc7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -413.0
+offset_top = 10.0
+offset_right = -263.0
+offset_bottom = 160.0
+theme = ExtResource("2_nb5j0")
+
+[node name="Polygon2D" type="Polygon2D" parent="Panel"]
+position = Vector2(-99.4753, -176)
+scale = Vector2(4.20765, 3.17698)
+polygon = PackedVector2Array(32.0616, 69.7334, 32.0445, 78.4939, 32.0616, 88.0908, 54.0623, 88.0908)
+uv = PackedVector2Array(35.6027, 69.3934, 35.6026, 81.9571, 52.5094, 81.9571)
+
+[node name="LabelShadow" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 106.0
+offset_right = 85.0
+offset_bottom = 120.0
+text = "20 M"
+label_settings = SubResource("LabelSettings_0thh5")
+
+[node name="LabelAngle" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 52.0
+offset_right = 57.0
+offset_bottom = 69.0
+text = "35°"
+label_settings = SubResource("LabelSettings_23dbm")
+
+[node name="LabelHeight" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 59.0
+offset_right = 98.0
+offset_bottom = 77.0
+text = "h=?
+"
+label_settings = SubResource("LabelSettings_21b3y")

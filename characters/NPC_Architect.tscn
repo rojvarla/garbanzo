@@ -1,33 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://xo7dxxmg3ld5"]
+[gd_scene load_steps=10 format=3 uid="uid://xo7dxxmg3ld5"]
 
 [ext_resource type="Script" uid="uid://b2fd0nnw80r6h" path="res://characters/npc_architect.gd" id="1_37pha"]
+[ext_resource type="Texture2D" uid="uid://cbbldc7oy8acv" path="res://assets/NPCs/architect.png" id="2_qepv1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdrtw"]
+atlas = ExtResource("2_qepv1")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4i2b"]
+atlas = ExtResource("2_qepv1")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dwpn"]
+atlas = ExtResource("2_qepv1")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_463fu"]
+atlas = ExtResource("2_qepv1")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jt3oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdrtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4i2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dwpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_463fu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qepv1"]
-radius = 16.0
-height = 36.0
+radius = 9.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdrtw"]
-radius = 19.0
-height = 74.0
+radius = 17.0
+height = 36.0
 
 [node name="NpcArchitect" type="CharacterBody2D"]
 script = ExtResource("1_37pha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(52, 20.75)
+scale = Vector2(0.999998, 0.65625)
+sprite_frames = SubResource("SpriteFrames_jt3oa")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(62, 3)
+position = Vector2(55, 21)
 shape = SubResource("CapsuleShape2D_qepv1")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(60, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, -4)
+position = Vector2(-8, 16)
 shape = SubResource("CapsuleShape2D_rdrtw")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 15.0
-offset_top = 22.0
-offset_right = 59.0
-offset_bottom = 45.0
+offset_left = 35.0
+offset_top = 1.0
+offset_right = 69.0
+offset_bottom = 24.0

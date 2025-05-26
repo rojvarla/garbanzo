@@ -1,0 +1,159 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1fpf84cllgqm"]
+
+[ext_resource type="Theme" uid="uid://d30vgx5r5hxii" path="res://ui_theme.tres" id="1_a70ig"]
+[ext_resource type="Script" uid="uid://ma5rdjovawcy" path="res://trig_challenge_ui.gd" id="2_yc0gj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lxmi"]
+font_size = 14
+
+[node name="TrigChallengeUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -472.0
+offset_right = -712.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_a70ig")
+script = ExtResource("2_yc0gj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -144.0
+offset_top = 40.0
+offset_right = 152.0
+offset_bottom = 256.0
+theme = ExtResource("1_a70ig")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = -56.0
+offset_right = 286.0
+offset_bottom = 4.0
+label_settings = SubResource("LabelSettings_0lxmi")
+autowrap_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 176.0
+offset_right = 208.0
+offset_bottom = 209.0
+placeholder_text = "Altura (m)"
+
+[node name="SubmitButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 176.0
+offset_right = 281.0
+offset_bottom = 206.0
+text = "Enviar
+"
+
+[node name="CalculatorButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 286.0
+offset_bottom = 38.0
+text = "Mostrar Calculadora
+"
+
+[node name="CalculatorPanel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button_0" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 144.0
+offset_right = 132.0
+offset_bottom = 174.0
+
+[node name="Button_1" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 112.0
+offset_right = 68.0
+offset_bottom = 142.0
+
+[node name="Button_2" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 112.0
+offset_right = 132.0
+offset_bottom = 142.0
+
+[node name="Button_3" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 112.0
+offset_right = 196.0
+offset_bottom = 142.0
+
+[node name="Button_4" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 80.0
+offset_right = 68.0
+offset_bottom = 110.0
+
+[node name="Button_5" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 80.0
+offset_right = 132.0
+offset_bottom = 110.0
+
+[node name="Button_6" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 80.0
+offset_right = 196.0
+offset_bottom = 110.0
+
+[node name="Button_7" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 68.0
+offset_bottom = 78.0
+
+[node name="Button_8" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 48.0
+offset_right = 132.0
+offset_bottom = 78.0
+
+[node name="Button_9" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 48.0
+offset_right = 196.0
+offset_bottom = 78.0
+
+[node name="Button_Dot" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 112.0
+offset_right = 260.0
+offset_bottom = 142.0
+
+[node name="Button_Tan" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 80.0
+offset_right = 260.0
+offset_bottom = 110.0
+
+[node name="Button_Equal" type="Button" parent="Panel/CalculatorPanel"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 144.0
+offset_right = 260.0
+offset_bottom = 174.0

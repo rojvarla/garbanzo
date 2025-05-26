@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1k46n0yblv5l"]
+
+[ext_resource type="Script" uid="uid://bs12lkvcydtf" path="res://cartographer_map_clock.gd" id="1_exdi0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7rwr"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_jnvbr"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_asjax"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_afajb"]
+font_size = 12
+font_color = Color(1, 0, 0, 1)
+
+[node name="CartographerMapClock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_exdi0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 150.0
+
+[node name="Polygon2D" type="Polygon2D" parent="Panel"]
+polygon = PackedVector2Array(48, 40, 56, 104, 120, 80)
+
+[node name="Label_Side1" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_n7rwr")
+
+[node name="Label_Side2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_jnvbr")
+
+[node name="Label_Side3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_asjax")
+
+[node name="Label_Angle" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 54.0
+offset_right = 88.0
+offset_bottom = 71.0
+text = "C=?"
+label_settings = SubResource("LabelSettings_afajb")
