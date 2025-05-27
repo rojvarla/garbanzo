@@ -51,7 +51,7 @@ texture = SubResource("AtlasTexture_0thh5")
 position = Vector2(-99.4753, -176)
 scale = Vector2(4.20765, 3.17698)
 color = Color(0.890203, 0.769041, 0.69948, 1)
-polygon = PackedVector2Array(32.0616, 69.7334, 32.0445, 78.4939, 32.0616, 88.0908, 54.0623, 88.0908)
+polygon = PackedVector2Array(32.0616, 69.7334, 32.0445, 78.4939, 32.0616, 88.0908, 54.0623, 88.0908, 39.9308, 76.2995)
 uv = PackedVector2Array(35.6027, 69.3934, 35.6026, 81.9571, 52.5094, 81.9571)
 
 [node name="LabelShadow" type="Label" parent="Panel"]
@@ -65,19 +65,19 @@ label_settings = SubResource("LabelSettings_0thh5")
 
 [node name="LabelAngle" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 38.0
-offset_top = 52.0
-offset_right = 57.0
-offset_bottom = 69.0
+offset_left = 90.0
+offset_top = 88.0
+offset_right = 109.0
+offset_bottom = 105.0
 text = "35°"
 label_settings = SubResource("LabelSettings_23dbm")
 
 [node name="LabelHeight" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 83.0
-offset_top = 55.0
-offset_right = 106.0
-offset_bottom = 75.0
+offset_left = 14.0
+offset_top = 76.0
+offset_right = 37.0
+offset_bottom = 113.0
 text = "h=?
 "
 label_settings = SubResource("LabelSettings_21b3y")

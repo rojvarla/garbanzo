@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://k4x06bnws308" path="res://main_scene.gd" id="1_x4av3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3mqji"]
-load_path = "res://.godot/imported/fondo1.jpeg-3cb33d423beb967105f927e411817bda.ctex"
 
 [node name="MainScene" type="Control"]
 layout_mode = 3

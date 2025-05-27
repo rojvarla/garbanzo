@@ -7,7 +7,6 @@ func _ready():
 	mission_manager.bridge_unlocked.connect(_on_bridge_unlocked)
 	mission_manager.tower_height_updated.connect(_on_tower_height_updated)
 	mission_manager.clock_path_unlocked.connect(_on_clock_path_unlocked)
-	mission_manager.reading_town_unlocked.connect(_on_reading_town_unlocked)
 	$Bridge.visible = false
 	$ClockPath.visible = false
 	$NpcElder.visible = false

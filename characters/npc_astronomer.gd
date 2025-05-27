@@ -56,7 +56,7 @@ func _on_dialogue_ended():
 		cartographer_map.position.x = 400
 		cartographer_map.position.y = 100
 		cartographer_map.show_map()
-		route_challenge_ui.show_challenge("Calcula la altura de la torre con una sombra de 10 m y un ángulo de 54.5°.")
+		route_challenge_ui.show_challenge("Calcula la altura de la torre con una sombra de 20 m y un ángulo de elevación de 35°.")
 		print("Dialogue ended, showing UI at x=", route_challenge_ui.position.x, ", y=", route_challenge_ui.position.y, " and map at x=", cartographer_map.position.x, ", y=", cartographer_map.position.y)
 
 func _on_answer_submitted(answer: float):

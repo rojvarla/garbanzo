@@ -47,7 +47,7 @@ height = 22.0
 size = Vector2(31.5, 26)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dlopp"]
-font_size = 10
+font_size = 12
 
 [node name="NpcAstronomer" type="CharacterBody2D"]
 script = ExtResource("1_7ji3k")
@@ -69,9 +69,11 @@ position = Vector2(18, 7)
 shape = SubResource("RectangleShape2D_puonm")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -23.0
-offset_top = -23.0
-offset_right = 156.0
-offset_bottom = 108.0
+offset_left = -33.0
+offset_top = -43.0
+offset_right = 164.0
+offset_bottom = 226.0
 scale = Vector2(0.492473, 0.144998)
 label_settings = SubResource("LabelSettings_dlopp")
+horizontal_alignment = 1
+vertical_alignment = 2

@@ -9,7 +9,7 @@ atlas = ExtResource("3_yc0gj")
 region = Rect2(607.818, 16.6265, 48.2432, 64.0002)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0lxmi"]
-font_size = 14
+font_size = 15
 
 [node name="TrigChallengeUi" type="Control"]
 layout_mode = 3
@@ -41,10 +41,10 @@ texture = SubResource("AtlasTexture_0lxmi")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = -32.0
-offset_top = -104.0
-offset_right = 312.0
-offset_bottom = -44.0
+offset_left = -31.0
+offset_top = -108.0
+offset_right = 313.0
+offset_bottom = -48.0
 label_settings = SubResource("LabelSettings_0lxmi")
 horizontal_alignment = 1
 vertical_alignment = 2
