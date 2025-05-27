@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 100.0
 @onready var animated_sprite = $AnimatedSprite2D
 @export var inventario: inventario
+var can_move = true
 
 var last_direction = "front"  # Dirección inicial
 
@@ -11,6 +12,11 @@ func _ready():
 		global_position = Global.spawn_position
 
 func _process(_delta):
+	if not can_move:
+		velocity = Vector2.ZERO
+		animated_sprite.stop()  # Opcional: detener la animación cuando no se mueve
+		return
+
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("ui_right"):
@@ -35,6 +41,10 @@ func _process(_delta):
 	velocity = direction.normalized() * speed
 	move_and_slide()
 
+func disable_movement():
+	can_move = false
+	print("Player movement disabled")
 
-func _on_transition_to_spawn_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func enable_movement():
+	can_move = true
+	print("Player movement enabled")

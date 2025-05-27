@@ -20,8 +20,8 @@ var missions = {
 	"clock_mission": {
 		"name": "El Reloj Solar",
 		"description": "Calcula el ángulo de la sombra del reloj solar.",
-		"status": "not_started",
-		"pista": "Ángulo inicial: 45°"
+		"status": "not_started"
+		# Eliminamos "pista" ya que no se usa
 	}
 }
 
@@ -49,14 +49,14 @@ func complete_mission(mission_id: String):
 			tower_height_updated.emit(14.0)
 		elif mission_id == "clock_mission":
 			clock_path_unlocked.emit()
+			reading_town_unlocked.emit()  # Desbloquear ReadingTown al completar clock_mission
 		print("Mission completed: ", mission_id)
 
 func unlock_clock_path():
 	clock_path_unlocked.emit()
-	if all_missions_completed():
-		reading_town_unlocked.emit()
-	else:
-		print("Cannot unlock ReadingTown yet")
+	# Eliminamos la verificación all_missions_completed() para simplificar
+	# reading_town_unlocked.emit() se manejará en complete_mission("clock_mission")
+	print("Clock path unlocked")
 
 func receive_pista(mission_id: String, pista: String):
 	if mission_id in missions:

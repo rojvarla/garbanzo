@@ -1,60 +1,111 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1k46n0yblv5l"]
+[gd_scene load_steps=10 format=3 uid="uid://b1k46n0yblv5l"]
 
 [ext_resource type="Script" uid="uid://bs12lkvcydtf" path="res://cartographer_map_clock.gd" id="1_exdi0"]
+[ext_resource type="Theme" uid="uid://d30vgx5r5hxii" path="res://ui_theme.tres" id="2_jnvbr"]
+[ext_resource type="Texture2D" uid="uid://b72yrjng8qmyp" path="res://assets/UI assets pack 2/UI books & more.png" id="2_n7rwr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnvbr"]
+atlas = ExtResource("2_n7rwr")
+region = Rect2(15.8557, 30.9337, 95.7902, 46.0642)
 
 [sub_resource type="LabelSettings" id="LabelSettings_n7rwr"]
-font_size = 12
+font_size = 8
+font_color = Color(0.495736, 0.131825, 1.02037e-05, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jnvbr"]
-font_size = 12
+font_size = 8
+font_color = Color(0.495736, 0.131825, 1.02037e-05, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_asjax"]
-font_size = 12
+font_size = 8
+font_color = Color(0.495736, 0.131825, 1.02037e-05, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_afajb"]
-font_size = 12
+font_size = 8
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pwglj"]
+line_spacing = 0.5
+font_size = 9
+font_color = Color(0.239216, 0.133333, 0, 1)
 
 [node name="CartographerMapClock" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -24.0
+offset_right = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_exdi0")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 150.0
-offset_bottom = 150.0
+offset_left = -374.0
+offset_top = 62.0
+offset_right = -374.0
+offset_bottom = 70.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 246.0
+offset_bottom = 126.0
+theme = ExtResource("2_jnvbr")
+texture = SubResource("AtlasTexture_jnvbr")
 
 [node name="Polygon2D" type="Polygon2D" parent="Panel"]
-polygon = PackedVector2Array(48, 40, 56, 104, 120, 80)
+position = Vector2(88, -8)
+scale = Vector2(0.9, 0.875)
+color = Color(0.852876, 0.702215, 0.614998, 1)
+polygon = PackedVector2Array(121.949, 54.2897, 85.654, 94.7351, 124.444, 100.571)
 
 [node name="Label_Side1" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 201.0
+offset_top = 57.0
+offset_right = 241.0
+offset_bottom = 80.0
+text = "6m"
 label_settings = SubResource("LabelSettings_n7rwr")
 
 [node name="Label_Side2" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 175.0
+offset_top = 76.0
+offset_right = 199.0
+offset_bottom = 93.0
+text = "5m"
 label_settings = SubResource("LabelSettings_jnvbr")
 
 [node name="Label_Side3" type="Label" parent="Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 168.0
+offset_top = 49.0
+offset_right = 192.0
+offset_bottom = 66.0
+text = "7m"
 label_settings = SubResource("LabelSettings_asjax")
 
 [node name="Label_Angle" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 54.0
-offset_right = 88.0
-offset_bottom = 71.0
+offset_left = 184.0
+offset_top = 68.0
+offset_right = 200.0
+offset_bottom = 80.0
 text = "C=?"
 label_settings = SubResource("LabelSettings_afajb")
+
+[node name="LabelCos" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 98.0
+offset_bottom = 95.0
+text = "Ley del coseno: 
+c²=a² +b²-2ab*cos(C)
+"
+label_settings = SubResource("LabelSettings_pwglj")
+autowrap_mode = 2

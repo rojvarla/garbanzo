@@ -7,7 +7,7 @@ var mission_completed = false
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var route_challenge_ui = preload("res://RouteChallengeUI.tscn").instantiate()
 @onready var cartographer_map = preload("res://CartographerMapClock.tscn").instantiate()
-@onready var sundial = get_parent().get_node_or_null("Sundial")  # Acceder al nodo hermano
+@onready var sundial = get_parent().get_node_or_null("Sundial")
 
 func _ready():
 	$Area2D.body_entered.connect(_on_body_entered)
@@ -32,14 +32,14 @@ func _process(delta):
 		start_dialogue()
 
 func _on_body_entered(body):
-	if body == $Player:
+	if body == player:  # Cambiado de $Player a player
 		player_in_range = true
 		$Label.text = "Presiona E para hablar"
 		$Label.visible = true
 		print("Player entered interaction range")
 
 func _on_body_exited(body):
-	if body == $Player:
+	if body == player:  # Cambiado de $Player a player
 		player_in_range = false
 		$Label.visible = false
 		print("Player exited interaction range")
@@ -56,33 +56,24 @@ func start_dialogue():
 
 func _on_dialogue_ended():
 	if not mission_completed:
-		route_challenge_ui.position.x = 170  # Personaliza
+		route_challenge_ui.position.x = 170
 		route_challenge_ui.position.y = 80
 		cartographer_map.position.x = 400
 		cartographer_map.position.y = 100
 		cartographer_map.show_map()
 		route_challenge_ui.show_challenge("Calcula el ángulo de la sombra: base 5 m, poste 6 m, sombra 7 m.")
-		print("Dialogue ended, showing UI at x=", route_challenge_ui.position.x, ", y=", route_challenge_ui.position.y, " and map at x=", cartographer_map.position.x, ", y=", cartographer_map.position.y)
+		print("Dialogue ended, showing UI")
 
 func _on_answer_submitted(answer: float):
 	cartographer_map.hide_map()
 	if abs(answer - 78.5) < 1.0:
 		mission_completed = true
 		Dialogic.start("Clockmaker_Success")
-		await Dialogic.timeline_ended  # Esperar a que termine Clockmaker_Success
+		await Dialogic.timeline_ended
 		get_node("/root/MissionManager").complete_mission("clock_mission")
 		get_node("/root/MissionManager").unlock_clock_path()
 		if sundial != null:
 			sundial.modulate = Color(1, 0.84, 0)  # Dorado
-		else:
-			print("Cannot change Sundial color: Sundial node is null")
-		var all_completed = get_node("/root/MissionManager").all_missions_completed()
-		print("All missions completed check: ", all_completed)
-		if all_completed:
-			print("Starting Elder_Final dialogue")
-			Dialogic.start("Elder_Final")
-		else:
-			print("Not all missions completed yet")
 		print("Correct answer, mission completed")
 	else:
 		Dialogic.start("Clockmaker_Failure")

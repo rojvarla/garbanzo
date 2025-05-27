@@ -2,37 +2,46 @@ extends Node2D
 
 # Variables
 var player_in_range = false
-var has_spoken_once = false
+var has_spoken = false
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var animated_sprite = $AnimatedSprite2D # Referencia al AnimatedSprite2D
+@onready var animated_sprite = $AnimatedSprite2D
 
 func _ready():
-	# Conectar señales del Area2D
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
 	$Label.visible = false
-	# Reproducir la animación idle
 	animated_sprite.play("idle")
+	if player == null:
+		push_error("Player node not found in group 'player'. Ensure a Player node exists and is in the 'player' group.")
+	else:
+		print("Player node found: ", player.name)
+	print("NpcAurea initialized")
 
 func _process(delta):
-	# Activar diálogo con la tecla "E"
 	if player_in_range and Input.is_action_just_pressed("interact"):
 		start_dialogue()
 
 func _on_body_entered(body):
 	if body == player:
 		player_in_range = true
-		$Label.text = "Presiona E para hablar"
 		$Label.visible = true
+		$Label.text = "Presiona E para hablar"
+		print("Player near NpcAurea")
 
 func _on_body_exited(body):
-	if body == player:
+	if body == player:  # Cambiado de $Player a player
 		player_in_range = false
 		$Label.visible = false
+		print("Player left NpcAurea")
 
 func start_dialogue():
-	# Iniciar la Timeline de Dialogic sin cambiar la animación
-	var timeline_name = "Aurea_Initial_Dialogue" if not has_spoken_once else "Aurea_Repeat_Dialogue"
-	var dialogue = Dialogic.start(timeline_name)
-	add_child(dialogue)
-	has_spoken_once = true
+	if Dialogic.current_timeline != null:
+		print("Another dialogue is active, skipping")
+		return
+	Dialogic.start("Aurea_Initial_Dialogue")
+	Dialogic.timeline_ended.connect(_on_dialogue_ended, CONNECT_ONE_SHOT)
+	has_spoken = true
+	print("Starting Aurea_Initial_Dialogue")
+
+func _on_dialogue_ended():
+	print("Aurea_Initial_Dialogue ended")

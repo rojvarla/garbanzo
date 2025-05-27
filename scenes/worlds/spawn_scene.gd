@@ -10,17 +10,29 @@ func _ready():
 	$ReadingDoor/Area2D.body_exited.connect(_on_reading_door_exited)
 	$MathDoor/Label.visible = false
 	$ReadingDoor/Label.visible = false
+	# Asegurarse de que las puertas comiencen cerradas
+	$MathDoor/AnimatedSprite2D.animation = "default"
+	$ReadingDoor/AnimatedSprite2D.animation = "default"
 	get_node("/root/MissionManager").reading_town_unlocked.connect(_on_reading_town_unlocked)
 	print("Spawn initialized")
 
 func _process(_delta):
 	if is_animating:
 		return
+	var math_door_bodies = $MathDoor/Area2D.get_overlapping_bodies()
+	if math_door_bodies.size() > 0:
+		print("Bodies overlapping MathDoor: ", math_door_bodies)
+	else:
+		print("No bodies overlapping MathDoor")
 	if Input.is_action_just_pressed("ui_accept"):  # Espacio
 		if $Player in $MathDoor/Area2D.get_overlapping_bodies():
+			print("Player detected in MathDoor, starting transition")
 			start_door_animation("math")
 		elif $Player in $ReadingDoor/Area2D.get_overlapping_bodies() and reading_door_unlocked:
+			print("Player detected in ReadingDoor, starting transition")
 			start_door_animation("reading")
+		else:
+			print("Player not detected in any door")
 
 func _on_math_door_entered(body):
 	if body == $Player:
@@ -45,21 +57,33 @@ func _on_reading_door_exited(body):
 		print("Player left ReadingDoor")
 
 func start_door_animation(door_type: String):
+	if is_animating:
+		print("Transition already in progress, skipping")
+		return
 	is_animating = true
+	# Deshabilitar el movimiento del Player
+	if $Player.has_method("disable_movement"):
+		$Player.disable_movement()
+	# Cambiar directamente a la escena sin animación
 	if door_type == "math":
-		$MathDoor/AnimationPlayer.play("open_door")
-		await $MathDoor/AnimationPlayer.animation_finished
-		get_tree().change_scene_to_file("res://scenes/worlds/MathematicsTown.tscn")
-		print("Entering MathematicsTown")
+		var error = get_tree().change_scene_to_file("res://scenes/worlds/MathematicsTown.tscn")
+		if error != OK:
+			print("Failed to change scene to MathematicsTown: ", error)
+		else:
+			print("Entering MathematicsTown")
 	elif door_type == "reading":
-		$ReadingDoor/AnimationPlayer.play("open_door")
-		await $ReadingDoor/AnimationPlayer.animation_finished
-		get_tree().change_scene_to_file("res://scenes/worlds/ReadingTown.tscn")
-		print("Entering ReadingTown")
+		var error = get_tree().change_scene_to_file("res://scenes/worlds/ReadingTown.tscn")
+		if error != OK:
+			print("Failed to change scene to ReadingTown: ", error)
+		else:
+			print("Entering ReadingTown")
+	# Habilitar el movimiento del Player (por si no cambia de escena)
+	if $Player.has_method("enable_movement"):
+		$Player.enable_movement()
 	is_animating = false
 
 func _on_reading_town_unlocked():
 	reading_door_unlocked = true
 	$ReadingDoor/AnimatedSprite2D.modulate = Color(0, 1, 0)  # Verde
 	$ReadingDoor/Label.text = "Presiona Espacio para entrar"
-	print("Reading door unlocked")
+	print("Reading door unlocked - reading_door_unlocked set to: ", reading_door_unlocked)

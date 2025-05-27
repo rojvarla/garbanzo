@@ -28759,7 +28759,6 @@ tile_set = SubResource("TileSet_mh4jx")
 
 [node name="Player" parent="." instance=ExtResource("4_fuy3x")]
 position = Vector2(703, 817)
-speed = 100.0
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 

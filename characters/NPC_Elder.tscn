@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cufwqru0ux08e"]
+
+[ext_resource type="Script" uid="uid://d0jnkv32bipan" path="res://characters/npc_elder.gd" id="1_wmwhf"]
+[ext_resource type="Texture2D" uid="uid://ckpealmsx7pag" path="res://assets/NPCs/MiniOldWoman.png" id="2_m732o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svh1w"]
+atlas = ExtResource("2_m732o")
+region = Rect2(0, 11, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkqej"]
+atlas = ExtResource("2_m732o")
+region = Rect2(32, 11, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vagvn"]
+atlas = ExtResource("2_m732o")
+region = Rect2(64, 11, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olg37"]
+atlas = ExtResource("2_m732o")
+region = Rect2(96, 11, 32, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vwto4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkqej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vagvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olg37")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4e7a2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3pxpw"]
+radius = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_agon7"]
+font_size = 10
+
+[node name="NpcElder" type="CharacterBody2D"]
+script = ExtResource("1_wmwhf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 10.5)
+scale = Vector2(1.9375, 1.875)
+sprite_frames = SubResource("SpriteFrames_vwto4")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 12)
+shape = SubResource("CapsuleShape2D_4e7a2")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(6, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(9, 8)
+shape = SubResource("CapsuleShape2D_3pxpw")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -10.0
+offset_top = -17.0
+offset_right = 42.0
+offset_bottom = -3.0
+label_settings = SubResource("LabelSettings_agon7")
+horizontal_alignment = 1
+vertical_alignment = 2

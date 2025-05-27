@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8cguocwq4fud"]
+[gd_scene load_steps=7 format=3 uid="uid://c8cguocwq4fud"]
 
 [ext_resource type="Script" uid="uid://d3w68wyimuber" path="res://cartographer_map_tower.gd" id="1_dxsc7"]
-[ext_resource type="Theme" uid="uid://d30vgx5r5hxii" path="res://ui_theme.tres" id="2_nb5j0"]
+[ext_resource type="Texture2D" uid="uid://b72yrjng8qmyp" path="res://assets/UI assets pack 2/UI books & more.png" id="3_nb5j0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0thh5"]
+atlas = ExtResource("3_nb5j0")
+region = Rect2(767.711, 63.9521, 48.5785, 48.1929)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0thh5"]
 font_size = 10
+font_color = Color(0.440118, 0.137884, 1.10701e-06, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_23dbm"]
 font_size = 12
@@ -12,7 +17,7 @@ font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_21b3y"]
 font_size = 12
-font_color = Color(1, 0.988235, 1, 1)
+font_color = Color(0.440118, 0.137884, 1.10701e-06, 1)
 
 [node name="CartographerMapTower" type="Control"]
 layout_mode = 3
@@ -29,15 +34,23 @@ script = ExtResource("1_dxsc7")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = -413.0
-offset_top = 10.0
-offset_right = -263.0
-offset_bottom = 160.0
-theme = ExtResource("2_nb5j0")
+offset_left = -346.0
+offset_top = 25.0
+offset_right = -346.0
+offset_bottom = 25.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 6.0
+offset_right = 156.0
+offset_bottom = 154.0
+texture = SubResource("AtlasTexture_0thh5")
 
 [node name="Polygon2D" type="Polygon2D" parent="Panel"]
 position = Vector2(-99.4753, -176)
 scale = Vector2(4.20765, 3.17698)
+color = Color(0.890203, 0.769041, 0.69948, 1)
 polygon = PackedVector2Array(32.0616, 69.7334, 32.0445, 78.4939, 32.0616, 88.0908, 54.0623, 88.0908)
 uv = PackedVector2Array(35.6027, 69.3934, 35.6026, 81.9571, 52.5094, 81.9571)
 
@@ -61,10 +74,10 @@ label_settings = SubResource("LabelSettings_23dbm")
 
 [node name="LabelHeight" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 59.0
-offset_right = 98.0
-offset_bottom = 77.0
+offset_left = 83.0
+offset_top = 55.0
+offset_right = 106.0
+offset_bottom = 75.0
 text = "h=?
 "
 label_settings = SubResource("LabelSettings_21b3y")
