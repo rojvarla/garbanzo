@@ -23,7 +23,9 @@ MissionManager="*res://MissionManager.gd"
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"Defensor de las Ideas": "res://dialogues/Defensor de las Ideas.dch"
+}
 directories/dtl_directory={
 "Architect_Failure": "res://dialogues/Architect_Failure.dtl",
 "Architect_Initial_Dialogue": "res://dialogues/Architect_Initial_Dialogue.dtl",
@@ -38,13 +40,53 @@ directories/dtl_directory={
 "Clockmaker_Initial_Dialogue": "res://dialogues/Clockmaker_Initial_Dialogue.dtl",
 "Clockmaker_Repeat_Dialogue": "res://dialogues/Clockmaker_Repeat_Dialogue.dtl",
 "Clockmaker_Success": "res://dialogues/Clockmaker_Success.dtl",
+"DefensorIdeas_Argument": "res://dialogues/DefensorIdeas_Argument.dtl",
 "Elder_Final": "res://dialogues/Elder_Final.dtl",
 "Guide_Initial_Dialogue": "res://dialogues/Guide_Initial_Dialogue.dtl",
 "Guide_Repeat_Dialogue": "res://dialogues/Guide_Repeat_Dialogue.dtl",
+"Liria_Welcome": "res://dialogues/Liria_Welcome.dtl",
 "Silvio_Initial_Dialogue": "res://dialogues/Silvio_Initial_Dialogue.dtl",
 "Silvio_Repeat_Dialogue": "res://dialogues/Silvio_Repeat_Dialogue.dtl"
 }
 layout/style_directory={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+variables={}
+extensions_folder="res://addons/dialogic_additions"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autopauses={}
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
+layout/end_behaviour=0
 
 [display]
 

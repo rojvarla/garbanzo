@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=4 uid="uid://cts1lp12nwnyw"]
+[gd_scene load_steps=105 format=4 uid="uid://cts1lp12nwnyw"]
 
 [ext_resource type="Texture2D" uid="uid://di0ruebcel3mc" path="res://tilesets/Tiles/Grass_Middle.png" id="1_lltba"]
 [ext_resource type="Texture2D" uid="uid://bf62ecv40a1ya" path="res://tilesets/Tiles/Water_Tile.png" id="2_dbjwb"]
@@ -32,6 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://xx8iov5sq8la" path="res://assets/Outdoor decoration/Oak_Tree.png" id="23_7cqk6"]
 [ext_resource type="Texture2D" uid="uid://c6exlttwbtthx" path="res://assets/Outdoor decoration/Outdoor_Decor_Free.png" id="24_2lhfm"]
 [ext_resource type="Texture2D" uid="uid://bjybpgtghviwj" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_1.png" id="29_j84se"]
+[ext_resource type="PackedScene" uid="uid://p8tl5tct80fq" path="res://characters/Liria.tscn" id="29_qn3mj"]
+[ext_resource type="Script" uid="uid://b1ut7wa1tu3c4" path="res://characters/liria.gd" id="30_67qkx"]
+[ext_resource type="PackedScene" uid="uid://b4cy1unpueodc" path="res://characters/DefensorIdeas.tscn" id="32_qn3mj"]
 [ext_resource type="Script" uid="uid://cs6vpjq8egb50" path="res://scenes/worlds/canvas_layer.gd" id="33_2lhfm"]
 [ext_resource type="PackedScene" uid="uid://yv7ad2j0t7ju" path="res://inventario.tscn" id="33_7cqk6"]
 
@@ -28760,6 +28763,13 @@ tile_set = SubResource("TileSet_mh4jx")
 [node name="Player" parent="." instance=ExtResource("4_fuy3x")]
 position = Vector2(703, 817)
 
+[node name="Liria" parent="." instance=ExtResource("29_qn3mj")]
+position = Vector2(711, 772)
+script = ExtResource("30_67qkx")
+
+[node name="DefensorIdeas" parent="." instance=ExtResource("32_qn3mj")]
+position = Vector2(2033, 230)
+
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 
 [node name="+casa" type="TileMapLayer" parent="TileMapLayer2"]
@@ -28786,6 +28796,7 @@ position = Vector2(694, 872)
 shape = SubResource("RectangleShape2D_p4ejl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("33_2lhfm")
 
 [node name="inventario" parent="CanvasLayer" instance=ExtResource("33_7cqk6")]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://b4cy1unpueodc"]
+
+[ext_resource type="Texture2D" uid="uid://bx201dkadfxsv" path="res://assets/NPCs/MiniNobleMan.png" id="1_g0iym"]
+[ext_resource type="Script" uid="uid://bvxi6ggppjh3g" path="res://characters/defensor_ideas.gd" id="1_obapg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obapg"]
+atlas = ExtResource("1_g0iym")
+region = Rect2(0, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcyqh"]
+atlas = ExtResource("1_g0iym")
+region = Rect2(32, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5tae"]
+atlas = ExtResource("1_g0iym")
+region = Rect2(64, 0, 32, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f608"]
+atlas = ExtResource("1_g0iym")
+region = Rect2(96, 0, 32, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_orth4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obapg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcyqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5tae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f608")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjfo5"]
+size = Vector2(17, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_feiyd"]
+radius = 15.5242
+
+[sub_resource type="LabelSettings" id="LabelSettings_7lahn"]
+font_size = 10
+
+[node name="DefensorIdeas" type="CharacterBody2D"]
+script = ExtResource("1_obapg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2.5, 2)
+scale = Vector2(1.15625, 1.1)
+sprite_frames = SubResource("SpriteFrames_orth4")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 6)
+shape = SubResource("RectangleShape2D_xjfo5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 6)
+shape = SubResource("CircleShape2D_feiyd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -29.0
+offset_top = -29.0
+offset_right = 38.0
+offset_bottom = -6.0
+label_settings = SubResource("LabelSettings_7lahn")
+horizontal_alignment = 1
+vertical_alignment = 2
