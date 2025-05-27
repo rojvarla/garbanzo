@@ -52,8 +52,8 @@ font_size = 10
 script = ExtResource("1_obapg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.5, 2)
-scale = Vector2(1.15625, 1.1)
+position = Vector2(1, 1)
+scale = Vector2(1.21875, 1.25)
 sprite_frames = SubResource("SpriteFrames_orth4")
 animation = &"idle"
 
@@ -68,10 +68,10 @@ position = Vector2(1, 6)
 shape = SubResource("CircleShape2D_feiyd")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -29.0
-offset_top = -29.0
-offset_right = 38.0
-offset_bottom = -6.0
+offset_left = -33.0
+offset_top = -28.0
+offset_right = 34.0
+offset_bottom = -5.0
 label_settings = SubResource("LabelSettings_7lahn")
 horizontal_alignment = 1
 vertical_alignment = 2
